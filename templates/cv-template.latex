@@ -1,0 +1,109 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{parskip}
+
+% Colors
+\definecolor{headercolor}{RGB}{0, 0, 0}
+\definecolor{sectioncolor}{RGB}{0, 0, 0}
+\definecolor{linkcolor}{RGB}{0, 102, 204}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=linkcolor,
+    urlcolor=linkcolor,
+    pdfborder={0 0 0}
+}
+
+% Section formatting
+\titleformat{\section}
+  {\Large\bfseries\color{sectioncolor}}
+  {}
+  {0em}
+  {}
+  [\titlerule]
+
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Tight list command for pandoc
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+\begin{document}
+
+% Header
+\begin{center}
+{\Huge\bfseries $if(name)$$name$$else$$firstname$ $lastname$$endif$}\\[4pt]
+$if(jobtitle)${\Large $jobtitle$}\\[8pt]$endif$
+$if(email)$Email - \href{mailto:$email$}{$email$}$endif$
+$if(linkedin)$ $if(email)$ | $endif$LinkedIn - \href{https://linkedin.com/in/$linkedin$}{linkedin.com/in/$linkedin$}$endif$
+$if(github)$ | GitHub - \href{https://github.com/$github$}{github.com/$github$}$endif$
+\end{center}
+
+$if(preferences)$
+\noindent
+$preferences$
+$endif$
+
+$if(about)$
+\section*{About me - Summary}
+$about$
+$endif$
+
+$if(experience)$
+\section*{Experience}
+$for(experience)$
+\noindent
+\textbf{$experience.company$} | \textit{$experience.position$} | $experience.location$ | $experience.type$ \hfill $experience.period$
+
+$if(experience.items)$
+\begin{itemize}[leftmargin=*, nosep, after=\vspace{6pt}]
+$for(experience.items)$
+\item $experience.items$
+$endfor$
+\end{itemize}
+$endif$
+
+$endfor$
+$endif$
+
+$if(education)$
+\section*{Education}
+$for(education)$
+\noindent
+\textbf{$education.institution$} / $education.degree$ \hfill $education.period$
+
+$if(education.description)$
+$education.description$
+$endif$
+
+$endfor$
+$endif$
+
+$if(languages_and_skills)$
+\section*{Language and tech skills}
+$languages_and_skills$
+$endif$
+
+$if(certifications)$
+\section*{Certifications/Courses}
+$for(certifications)$
+\noindent
+\textbf{$certifications.name$}: $certifications.description$
+
+$endfor$
+$endif$
+
+$body$
+
+\end{document}
