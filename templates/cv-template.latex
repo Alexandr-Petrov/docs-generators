@@ -8,7 +8,7 @@
 \usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{parskip}
-
+\usepackage{graphicx}
 % Colors
 \definecolor{headercolor}{RGB}{0, 0, 0}
 \definecolor{sectioncolor}{RGB}{0, 0, 0}
@@ -43,17 +43,16 @@
 
 % Header
 \begin{center}
-{\Huge\bfseries $if(name)$$name$$else$$firstname$ $lastname$$endif$}\\[4pt]
-$if(jobtitle)${\Large $jobtitle$}\\[8pt]$endif$
-$if(email)$Email - \href{mailto:$email$}{$email$}$endif$
-$if(linkedin)$ $if(email)$ | $endif$LinkedIn - \href{https://linkedin.com/in/$linkedin$}{linkedin.com/in/$linkedin$}$endif$
-$if(github)$ | GitHub - \href{https://github.com/$github$}{github.com/$github$}$endif$
-\end{center}
-
-$if(preferences)$
-\noindent
-$preferences$
+$if(photo)$
+\includegraphics[width=3cm]{$photo$}\\[8pt]
 $endif$
+{\Huge\bfseries $if(name)$$name$$else$$firstname$ $lastname$$endif$}\\[8pt]
+$if(jobtitle)${\Large $jobtitle$}\\[12pt]$endif$
+$if(email)$\href{mailto:$email$}{$email$}$endif$
+$if(linkedin)$ $if(email)$ \hspace{1em} $endif$\href{https://linkedin.com/in/$linkedin$}{linkedin.com/in/$linkedin$}$endif$
+$if(calendly)$ \hspace{1em} \href{https://calendly.com/$calendly$}{calendly.com/$calendly$}$endif$
+$if(github)$ \hspace{1em} \href{https://github.com/$github$}{github.com/$github$}$endif$
+\end{center}
 
 $if(about)$
 \section*{About me - Summary}
@@ -63,6 +62,9 @@ $endif$
 $if(experience)$
 \section*{Experience}
 $for(experience)$
+$if(experience.page_break_before)$
+\newpage
+$endif$
 \noindent
 \textbf{$experience.company$} | \textit{$experience.position$} | $experience.location$ | $experience.type$ \hfill $experience.period$
 

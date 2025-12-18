@@ -12,24 +12,28 @@ YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
 # Check if pandoc is installed
-if ! command -v pandoc &> /dev/null; then
-    echo -e "${RED}Error: pandoc is not installed${NC}"
-    echo "Install it with: sudo apt-get install pandoc (Linux) or brew install pandoc (macOS)"
+if command -v pandoc >/dev/null 2>&1; then
+    PANDOC_PATH=$(command -v pandoc)
+elif [ -f "/usr/bin/pandoc" ]; then
+    PANDOC_PATH="/usr/bin/pandoc"
+else
+    printf "${RED}Error: pandoc is not installed${NC}\n"
+    printf "Install it with: sudo apt-get install pandoc (Linux) or brew install pandoc (macOS)\n"
     exit 1
 fi
 
 # Check if pdflatex is installed
-if ! command -v pdflatex &> /dev/null; then
-    echo -e "${RED}Error: pdflatex is not installed${NC}"
-    echo "Install it with: sudo apt-get install texlive-latex-extra texlive-fonts-recommended (Linux)"
-    echo "or: brew install --cask mactex (macOS)"
+if ! command -v pdflatex >/dev/null 2>&1; then
+    printf "${RED}Error: pdflatex is not installed${NC}\n"
+    printf "Install it with: sudo apt-get install texlive-latex-extra texlive-fonts-recommended (Linux)\n"
+    printf "or: brew install --cask mactex (macOS)\n"
     exit 1
 fi
 
 # Check if moderncv is installed
-if ! kpsewhich moderncv.cls &> /dev/null; then
-    echo -e "${YELLOW}Warning: moderncv LaTeX package might not be installed${NC}"
-    echo "Install it with: sudo apt-get install texlive-latex-extra (Linux)"
+if ! kpsewhich moderncv.cls >/dev/null 2>&1; then
+    printf "${YELLOW}Warning: moderncv LaTeX package might not be installed${NC}\n"
+    printf "Install it with: sudo apt-get install texlive-latex-extra (Linux)\n"
 fi
 
 # Get script directory
@@ -40,14 +44,14 @@ OUTPUT_DIR="$PROJECT_ROOT/output"
 
 # Check arguments
 if [ $# -lt 1 ]; then
-    echo -e "${RED}Usage: $0 input.md [output.pdf]${NC}"
-    echo "Example: $0 examples/sample-cv.md"
+    printf "${RED}Usage: $0 input.md [output.pdf]${NC}\n"
+    printf "Example: $0 examples/sample-cv.md\n"
     exit 1
 fi
 
 INPUT_FILE="$1"
 if [ ! -f "$INPUT_FILE" ]; then
-    echo -e "${RED}Error: Input file '$INPUT_FILE' not found${NC}"
+    printf "${RED}Error: Input file '$INPUT_FILE' not found${NC}\n"
     exit 1
 fi
 
@@ -62,20 +66,17 @@ fi
 # Create output directory if it doesn't exist
 mkdir -p "$OUTPUT_DIR"
 
-echo -e "${GREEN}Generating CV...${NC}"
+printf "${GREEN}Generating CV...${NC}\n"
 echo "Input:    $INPUT_FILE"
 echo "Output:   $OUTPUT_FILE"
 echo "Template: $TEMPLATE_DIR/cv-template.latex"
 
 # Generate PDF
-pandoc "$INPUT_FILE" \
+if "$PANDOC_PATH" "$INPUT_FILE" \
     --template="$TEMPLATE_DIR/cv-template.latex" \
     --pdf-engine=pdflatex \
     -o "$OUTPUT_FILE"
-
-if [ $? -eq 0 ]; then
-    echo -e "${GREEN}✓ CV generated successfully: $OUTPUT_FILE${NC}"
-    
+then
     # Open the PDF if on Linux with xdg-open, macOS with open, or WSL with explorer.exe
     if command -v xdg-open &> /dev/null; then
         xdg-open "$OUTPUT_FILE" 2>/dev/null &
