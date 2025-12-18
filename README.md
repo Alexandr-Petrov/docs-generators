@@ -1,53 +1,41 @@
-# Document Generator (CV & Invoice)
+# Document Generator
 
-Automated system for generating professional CVs and invoices from Markdown files using Pandoc and LaTeX.
+Generate professional documents from Markdown using Pandoc and LaTeX.
 
-## 📋 Features
+## Installation
 
-- **CV Generation**: Create beautiful CVs using the ModernCV LaTeX template
-- **Invoice Generation**: Generate professional invoices with itemized billing
-- **Markdown-based**: Simple, text-based format for easy version control
-- **Customizable Templates**: Modify LaTeX templates to match your style
-- **Automated Scripts**: One-command generation of PDFs
+```bash
+sudo apt-get update
+sudo apt-get install -y pandoc texlive-latex-base texlive-latex-extra texlive-fonts-recommended
+```
 
-## 🚀 Quick Start
+## Structure
 
-### Prerequisites
+```
+docs/
+├── CV_int/          # International CV
+├── CV_DACH/         # DACH region CV
+├── CV_Russia/       # Russia CV
+└── [your-doc]/      # Add more folders
+    ├── doc.md       # Your content
+    └── template.latex
+```
 
-You need to install:
+## Usage
 
-1. **Pandoc** - Document converter
-   ```bash
-   # Linux
-   sudo apt-get install pandoc
-   
-   # macOS
-   brew install pandoc
-   ```
+Build all documents:
+```bash
+bash build-docs.sh
+```
 
-2. **LaTeX** - PDF generation engine
-   ```bash
-   # Linux (Ubuntu/Debian)
-   sudo apt-get install texlive-latex-extra texlive-fonts-recommended
-   
-   # macOS
-   brew install --cask mactex
-   # Or for a smaller installation:
-   brew install --cask basictex
-   ```
+PDFs are generated in `output/` folder.
 
-3. **ModernCV Package** (for CVs, usually included in texlive-latex-extra)
-   ```bash
-   # If not already installed
-   sudo apt-get install texlive-latex-extra
-   ```
+## Adding a New Document
 
-### Generate Your First Document
-
-1. **Generate the sample CV:**
-   ```bash
-   ./scripts/generate-cv.sh examples/sample-cv.md
-   ```
+1. Create folder in `docs/`: `mkdir docs/My_CV`
+2. Add `doc.md` with your content
+3. Add `template.latex` with your template
+4. Run `bash build-docs.sh`
 
 2. **Generate the sample invoice:**
    ```bash
