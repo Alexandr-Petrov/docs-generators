@@ -3,8 +3,6 @@
 # Build all documents from docs/ subfolders
 # Usage: ./build-docs.sh
 
-set -e
-
 # Colors
 GREEN='\033[0;32m'
 RED='\033[0;31m'
@@ -58,11 +56,11 @@ for DOC_FOLDER in "$DOCS_DIR"/*/ ; do
     
     printf "Building ${DOC_NAME}... "
     
-    # Generate PDF
-    if pandoc "$DOC_FILE" \
-        --template="$TEMPLATE_FILE" \
+    # Generate PDF (run from doc folder to resolve relative paths like images)
+    if (cd "$DOC_FOLDER" && pandoc "doc.md" \
+        --template="template.latex" \
         --pdf-engine=pdflatex \
-        -o "$OUTPUT_FILE" 2>/dev/null; then
+        -o "$OUTPUT_FILE" 2>/dev/null); then
         printf "${GREEN}✓${NC}\n"
         ((SUCCESS_COUNT++))
     else
@@ -80,3 +78,5 @@ printf "Output: ${OUTPUT_DIR}\n"
 if command -v xdg-open &> /dev/null && [ $SUCCESS_COUNT -gt 0 ]; then
     xdg-open "$OUTPUT_DIR" 2>/dev/null &
 fi
+
+exit 0

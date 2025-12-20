@@ -1,10 +1,10 @@
 ---
-name: John Smith
+name: Alexandr Petrov
 jobtitle: Senior DevOps / Cloud / Platform Engineer
 # photo: ./photo.jpg
-email: john.smith@example.com
-linkedin: john-smith-devops
-calendly: john-smith/intro-call
+email: alexandr.petrov@ie-petrov.com
+linkedin: alexandr-petrov-p
+calendly: petrov-alexandr-p/intro-call
 location: Remote · CET (UTC+1)
 
 about: |
@@ -26,9 +26,9 @@ core_expertise: |
   - Event-Driven & Serverless Architectures
 
 experience:
-  - company: Tech Consulting Ltd
+  - company: IE-Petrov
     position: Senior DevOps / Platform Engineer
-    location: Europe
+    location: Kazakhstan
     type: Remote
     period: 07.2025–Present
     items:
@@ -37,9 +37,9 @@ experience:
       - Performing high-level architecture reviews, production optimizations, and reliability improvements.
       - Advising teams on networking, cloud security, and infrastructure scaling strategies.
 
-  - company: Global Media Corp
+  - company: Axel Springer SE
     position: DevOps Engineer
-    location: Central Europe
+    location: Berlin
     type: Remote
     period: 02.2023–06.2025
     items:
@@ -50,20 +50,20 @@ experience:
       - Implemented and supported CI/CD pipelines, monitoring, and scaling strategies for both greenfield and legacy systems.
       - Converted manually provisioned infrastructure into Terraform and AWS CDK, enabling repeatable deployments and safer scaling across teams.
 
-  - company: AI Solutions GmbH
+  - company: XPAI (The Experience AI)
     position: DevOps Engineer
-    location: Central Europe
+    location: Berlin
     type: Hybrid
     period: 01.2022–01.2023
     items:
       - Stabilized complex AWS VPC and ECS environments by resolving circular dependencies using Infrastructure as Code (AWS CDK & Terraform).
       - Designed and operated scalable ECS clusters and multi-environment deployment pipelines.
-      - Improved system performance by ~30% and reduced device startup time by 88% (60s → 7s) through platform-level optimizations.
+      - Improved system performance by ~30% and reduced device startup time by 88% (60s → 7s) through OS-level optimizations.
       - Implemented offline-safe caching and failover mechanisms, preventing data loss and retaining key enterprise clients.
 
-  - company: IT Solutions AG
+  - company: Bridging-IT
     position: DevOps Engineer
-    location: Central Europe
+    location: Frankfurt am Main
     type: Remote
     period: 03.2021–12.2021
     page_break_before: true
@@ -73,9 +73,9 @@ experience:
       - Coached development teams on Git workflows and CI/CD best practices, harmonizing delivery across teams.
       - Supported production systems with a focus on deployment reliability and backward compatibility.
 
-  - company: FinTech Platform Ltd
+  - company: Spotcap
     position: DevOps Engineer
-    location: Central Europe
+    location: Berlin
     type: Remote
     period: 06.2019–03.2021
     items:
@@ -83,15 +83,28 @@ experience:
       - Managed infrastructure using AWS SAM / CloudFormation-based serverless tooling.
       - Supported early-stage platform scaling and deployment automation.
 
-  - company: Tech Services Corp
+  - company: ALG Innovations
     position: IT Engineer (Working Student)
-    location: Eastern Europe
+    location: Astana
     type: Hybrid
     period: 2015–2019
     items:
       - Assisted in data-center rollouts for financial institutions.
-      - Provided large-scale IT support for international events (1000+ users).
+      - Provided large-scale IT support (EXPO 2017, 1000+ users).
       - Coordinated technical communication across international engineering teams.
+
+education:
+  - institution: TH Wildau
+    degree: B.Eng. Computer Science
+    period: 2020–2021
+    description: |
+      Courses in: Distributed systems, Embedded systems and robotics, Basics of vehicle, ground and satellite systems.
+
+  - institution: Kazakh-German University
+    degree: B.Sc. Computer Science
+    period: 2016–2020
+    description: |
+      Computer Science: Courses in CS fundamentals: object-oriented programming, algorithms and data structures, computer architecture, operating systems; Programming courses: Java, C, C++, Python, Javascript; Database scheme design: MongoDB, SQL: Oracle, MS, MySQL; Network protocols and design: 1-4 layers of OSI model.
 
 technology_stack: |
   **Primary (6+ years):**
