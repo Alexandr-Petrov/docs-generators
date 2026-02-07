@@ -26,16 +26,17 @@ core_expertise: |
   - Event-Driven & Serverless Architectures
 
 experience:
-  - company: IE-Petrov
+  - company: IE-Petrov (Self-Employed)
     position: Senior DevOps / Platform Engineer
     location: Kazakhstan
     type: Remote
     period: 07.2025–Present
     items:
-      - Delivering DevOps and platform engineering services for cloud-native systems on AWS.
-      - Designing and reviewing containerized and event-driven architectures with a focus on scalability and fault tolerance.
-      - Performing high-level architecture reviews, production optimizations, and reliability improvements.
-      - Advising teams on networking, cloud security, and infrastructure scaling strategies.
+      - |
+        **VPS to AWS Migration – via Prime-ing (Ferchau) for Axel Springer SE**\
+        Period: July–December 2025\
+        \
+        Migrated VPS-based infrastructure to AWS Managed Services. Implementation using ECS, EC2, ALB, and Route53 with Terraform for Infrastructure as Code. Set up CloudWatch for observability, provided complete documentation, and structured handover to the operations team.
 
   - company: Axel Springer SE
     position: DevOps Engineer
@@ -45,12 +46,14 @@ experience:
     items:
       - Consulted multiple subsidiaries on scalable, event-driven content pipelines running on AWS.
       - Migrated workloads to AWS and Kubernetes (Helm), securing network access via VPC, IAM, CDN, and DNS.
+      - Implemented ArgoCD and GitOps workflows for newly migrated applications, enabling declarative, version-controlled deployments and automated drift detection.
+      - Managed Azure SSO, IAM, and SAML configurations for enterprise authentication and authorization workflows.
       - Eliminated data loss and processing delays by replacing fragile cron-based workflows with real-time, event-driven webhook processing.
-      - Achieved ~30% infrastructure cost reduction through targeted refactoring, workload right-sizing, and decommissioning legacy components.
+      - Achieved \textasciitilde 30% infrastructure cost reduction through targeted refactoring, workload right-sizing, and decommissioning legacy components.
       - Implemented and supported CI/CD pipelines, monitoring, and scaling strategies for both greenfield and legacy systems.
       - Converted manually provisioned infrastructure into Terraform and AWS CDK, enabling repeatable deployments and safer scaling across teams.
 
-  - company: XPAI (The Experience AI)
+  - company: Avantgarde Group
     position: DevOps Engineer
     location: Berlin
     type: Hybrid
@@ -58,7 +61,7 @@ experience:
     items:
       - Stabilized complex AWS VPC and ECS environments by resolving circular dependencies using Infrastructure as Code (AWS CDK & Terraform).
       - Designed and operated scalable ECS clusters and multi-environment deployment pipelines.
-      - Improved system performance by ~30% and reduced device startup time by 88% (60s → 7s) through OS-level optimizations.
+      - Improved system performance by \textasciitilde 30% and reduced device startup time by 88% (60s → 7s) through OS-level optimizations.
       - Implemented offline-safe caching and failover mechanisms, preventing data loss and retaining key enterprise clients.
 
   - company: Bridging-IT
@@ -66,21 +69,21 @@ experience:
     location: Frankfurt am Main
     type: Remote
     period: 03.2021–12.2021
-    page_break_before: true
     items:
       - Built and stabilized CI/CD pipelines, resolving 100% of automated deployment failures.
+      - Worked with GCP infrastructure and services to support cloud-native application deployment.
       - Integrated 3+ new technologies into existing delivery pipelines.
       - Coached development teams on Git workflows and CI/CD best practices, harmonizing delivery across teams.
       - Supported production systems with a focus on deployment reliability and backward compatibility.
 
   - company: Spotcap
-    position: DevOps Engineer
+    position: Backend Engineer
     location: Berlin
     type: Remote
     period: 06.2019–03.2021
     items:
-      - Designed and deployed AWS infrastructure for a greenfield SaaS underwriting platform.
-      - Managed infrastructure using AWS SAM / CloudFormation-based serverless tooling.
+      - Developed full-stack SaaS underwriting platform using serverless architecture on AWS, building the backend in Node.js/TypeScript and frontend in React.js.
+      - Designed and deployed AWS infrastructure using AWS SAM / CloudFormation-based serverless tooling.
       - Supported early-stage platform scaling and deployment automation.
 
   - company: ALG Innovations
@@ -107,14 +110,23 @@ education:
       Computer Science: Courses in CS fundamentals: object-oriented programming, algorithms and data structures, computer architecture, operating systems; Programming courses: Java, C, C++, Python, Javascript; Database scheme design: MongoDB, SQL: Oracle, MS, MySQL; Network protocols and design: 1-4 layers of OSI model.
 
 technology_stack: |
-  **Primary (6+ years):**
-  AWS (EC2, VPC, IAM, S3, RDS, DynamoDB, Lambda, API Gateway, CloudFront, Route53, SNS/SQS, CloudWatch), Terraform, AWS CDK, Kubernetes, Docker, CI/CD, Linux, Git
+  **Cloud Platforms:**
+  AWS (EC2, VPC, IAM, S3, RDS, DynamoDB, Lambda, API Gateway, CloudFront, Route53, SNS/SQS, CloudWatch, ECS), GCP, Azure (SSO, IAM, SAML)
 
-  **Secondary (2–4 years):**
-  Node.js, TypeScript, Python, Java, ECS, Helm, Jenkins, Redis, RabbitMQ, PostgreSQL, MySQL
+  **Infrastructure & Platform:**
+  Kubernetes, Docker, Terraform, AWS CDK, Helm, ArgoCD, Linux, Nginx, Apache
 
-  **Observability & Ops:**
-  Prometheus, Grafana, ELK Stack, Nginx, Apache
+  **CI/CD & Automation:**
+  Jenkins, Git, CI/CD Pipelines, GitOps
+
+  **Programming & Development:**
+  Node.js, TypeScript, Python
+
+  **Data & Messaging:**
+  PostgreSQL, MySQL, Redis, RabbitMQ, MongoDB
+
+  **Observability & Monitoring:**
+  Prometheus, Grafana, CloudWatch, ELK Stack
 
 certifications:
   - name: AWS Certified Solutions Architect – Professional

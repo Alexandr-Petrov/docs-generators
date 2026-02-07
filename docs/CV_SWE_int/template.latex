@@ -30,7 +30,7 @@
   {}
   [\titlerule]
 
-\titlespacing*{\section}{0pt}{8pt}{4pt}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
 
 % Remove page numbers
 \pagestyle{empty}
@@ -42,46 +42,34 @@
 \begin{document}
 
 % Header
-\noindent
-\begin{minipage}[t]{0.65\textwidth}
-\vspace{0pt}
+\begin{center}
+$if(photo)$
+\includegraphics[width=3cm]{$photo$}\\[8pt]
+$endif$
 {\Huge\bfseries $if(name)$$name$$else$$firstname$ $lastname$$endif$}\\[8pt]
 $if(jobtitle)${\Large $jobtitle$}\\[12pt]$endif$
-$if(email)$Email: \href{mailto:$email$}{$email$}\\$endif$
-$if(linkedin)$LinkedIn: \href{https://linkedin.com/in/$linkedin$}{linkedin.com/in/$linkedin$}\\$endif$
-$if(calendly)$Termin vereinbaren: \href{https://calendly.com/$calendly$}{calendly.com/$calendly$}\\$endif$
-$if(github)$GitHub: \href{https://github.com/$github$}{github.com/$github$}$endif$
-\end{minipage}%
-$if(photo)$
-\hspace{0.5em}
-\begin{minipage}[t]{0.32\textwidth}
-\vspace{-8pt}
-\raggedleft
-\includegraphics[width=5cm,height=5cm,keepaspectratio]{$photo$}
-\end{minipage}
-$endif$
-
-\vspace{0.5em}
-
-\vspace{12pt}
+$if(email)$\href{mailto:$email$}{$email$}$endif$
+$if(linkedin)$ $if(email)$ \hspace{1em} $endif$\href{https://linkedin.com/in/$linkedin$}{linkedin.com/in/$linkedin$}$endif$
+$if(calendly)$ \hspace{1em} \href{https://calendly.com/$calendly$}{calendly.com/$calendly$}$endif$
+$if(github)$ \hspace{1em} \href{https://github.com/$github$}{github.com/$github$}$endif$
+\end{center}
 
 $if(about)$
-\section*{Über mich - Zusammenfassung}
+\section*{About me - Summary}
 $about$
 $endif$
 
 $if(experience)$
-\section*{Berufserfahrung}
+\section*{Experience}
 $for(experience)$
 $if(experience.page_break_before)$
 \newpage
 $endif$
-\vspace{-2pt}
 \noindent
 \textbf{$experience.company$} | \textit{$experience.position$} | $experience.location$ | $experience.type$ \hfill $experience.period$
 
 $if(experience.items)$
-\begin{itemize}[leftmargin=*, nosep, after=\vspace{8pt}]
+\begin{itemize}[leftmargin=*, nosep, after=\vspace{6pt}]
 $for(experience.items)$
 \item $experience.items$
 $endfor$
@@ -92,7 +80,7 @@ $endfor$
 $endif$
 
 $if(education)$
-\section*{Ausbildung}
+\section*{Education}
 $for(education)$
 \noindent
 \textbf{$education.institution$} / $education.degree$ \hfill $education.period$
@@ -105,17 +93,17 @@ $endfor$
 $endif$
 
 $if(technology_stack)$
-\section*{Technologie-Stack}
+\section*{Technology Stack}
 $technology_stack$
 $endif$
 
 $if(languages_and_skills)$
-\section*{Sprachen und technische Fähigkeiten}
+\section*{Language and tech skills}
 $languages_and_skills$
 $endif$
 
 $if(languages)$
-\section*{Sprachen}
+\section*{Languages}
 $for(languages)$
 $languages$
 
@@ -123,7 +111,7 @@ $endfor$
 $endif$
 
 $if(certifications)$
-\section*{Zertifizierungen/Kurse}
+\section*{Certifications/Courses}
 $for(certifications)$
 \noindent
 \textbf{$certifications.name$}: $certifications.description$
